@@ -3,13 +3,44 @@
   <head>
     <meta charset="UTF-8">
     <title>Example of Customizable Parallel Sets</title>
-    <script src="bundle.js"></script>    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   </head>
 
   <body>
     <div class="container">
-      <div class="sidebar">Sidebar</div>
-      <div class="content">Content</div>
+      <div class="row">
+        <div class="content col s10 left-align">
+          <div class="section">
+            <h5>Parallel Set</h5>
+          </div>
+          <div class="divider"></div>
+        </div>
+
+        <div class="sidebar col s2 left-align">
+          <div class="section">
+            <h5>Features</h5>
+          </div>
+          <div class="divider"></div>
+          <div id="sidebar_options" class="row">
+          </div>
+        </div>
+      </div>
     </div>
+    <script src="bundle.js"></script>
   </body>
+
+  <footer class="page-footer container grey darken-4">
+    <div class="container">
+      <p class="left no-spacement">
+        peaonunes @ 2017 - <a target="_blank" href="https://www.jasondavies.com/parallel-sets/">Thanks to Jason Davies Parallel Set.</a>
+      </p>
+      <p class="right no-spacement">
+        <a class="grey-text text-lighten-4 right" href="#!">
+          More Links
+        </a>
+      </p>
+    </div>
+  </footer>
 </html>
