@@ -1,0 +1,25 @@
+.row {
+  margin-top: 10px;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.page-footer {
+  padding: 3px !important;
+}
+
+.no-spacement {
+  margin: 0px !important;
+}
+
+.parallel-width {
+  width: 1000px !important;
+}
