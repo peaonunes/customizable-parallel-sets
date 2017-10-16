@@ -4,7 +4,9 @@ import renderSidebar from './modules/sidebar'
 import renderParallelSets from './modules/parallelSets'
 
 document.addEventListener('DOMContentLoaded', () => {
-  const data = readData()
-  renderSidebar(data)
-  renderParallelSets(data)
+  setTimeout(function() {
+    const data = readData()
+    renderSidebar(data)
+    renderParallelSets(data)
+  }, 3000)
 })

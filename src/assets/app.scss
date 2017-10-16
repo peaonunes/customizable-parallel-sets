@@ -2,18 +2,20 @@
   margin-top: 10px;
 }
 
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-main {
-  flex: 1 0 auto;
-}
-
 .page-footer {
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
   padding: 3px !important;
+}
+
+.section {
+  padding-bottom: 5px;
+}
+
+.divider {
+  height: 2px !important;
 }
 
 .no-spacement {
@@ -22,4 +24,8 @@ main {
 
 .parallel-width {
   width: 1000px !important;
+}
+
+.parallel-content {
+  margin-top: 10px;
 }

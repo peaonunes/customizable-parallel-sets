@@ -17,18 +17,15 @@ const renderParallelSet = (data) => {
 }
 
 const getWidth = () => {
-  const parallelSetChartContainer = document.getElementById("parallel_set_container")
-  const width = parallelSetChartContainer.getBoundingClientRect().width - 20;
-  // TODO: Fix get width to pick correct dom width
-  const tmpWidth = 700
-  return tmpWidth
+  const width = d3v3.select(elementsProvider.PARALLEL_SET_CONTAINER).node().getBoundingClientRect().width - 30
+
+  return width
 }
 
 const reloadSvg = (width) => {
   const parallelSetChartContent = d3v3.select(elementsProvider.PARALLEL_SET_CONTENT)
   parallelSetChartContent.select("svg").remove()
   var svg = parallelSetChartContent.append("svg")
-    .attr("style", "background-color: #f5f5f5")
     .attr("width", width)
     .attr("height", parallelSetChart.height())
   
