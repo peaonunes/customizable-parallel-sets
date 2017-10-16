@@ -1,7 +1,7 @@
-import './d3.parsets.scss'
-import { elementsProvider } from 'utils/domUtils.js'
-import d3v3 from './d3v3'
+import { elementsProvider } from '../../utils/domUtils.js'
 import setupParsetFunction from './d3.parsets'
+import './d3.parsets.scss'
+import d3v3 from './d3v3'
 
 setupParsetFunction(d3v3)
 const parallelSetChart = d3v3.parsets()

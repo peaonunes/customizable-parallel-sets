@@ -1,7 +1,11 @@
-import { elementsProvider } from 'utils/domUtils.js'
+import { elementsProvider } from '../../utils/domUtils.js'
+import actions from './actions.js'
 import * as d3 from 'd3'
 
-export default (data) => {
+let storeRef;
+
+export default (data, store) => {
+  storeRef = store;
   const fields = getDataFields(data)
   renderSideBar(elementsProvider.SIDEBAR_OPTIONS, fields)
 }
@@ -26,7 +30,7 @@ const renderCheckboxes = (options) => {
       .attr("type", "checkbox")
       .attr("checked", "checked")
       .attr("id", (d) => d)
-      .on("click", (d) => console.log(`INFO: Pressed ${d} checkbox.`))
+      .on("click", (d) => toggleFeature(d))
 }
 
 const renderLabels = (options) => {
@@ -34,6 +38,11 @@ const renderLabels = (options) => {
     .append("label")
       .attr("for", (d) => d)
       .text((d) => d)
+}
+
+const toggleFeature = (featureName) => {
+  console.log(`INFO: Toggled ${featureName} checkbox.`)
+  storeRef.dispatch(actions.toggleSidebarFilter(featureName))
 }
 
 const getDataFields = (data) => {
