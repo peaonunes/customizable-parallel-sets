@@ -1,21 +1,41 @@
 import { elementsProvider } from '../../utils/domUtils.js'
+import storeUtils from '../redux/storeUtils.js'
 import actions from './actions.js'
+import Immutable from 'immutable'
 import * as d3 from 'd3'
 
-let storeRef;
+let viewState = Immutable.Map({})
 
-export default (data, store) => {
-  storeRef = store;
-  const fields = getDataFields(data)
-  renderSideBar(elementsProvider.SIDEBAR_OPTIONS, fields)
+export default () => {
+  const innerRender = () => {
+    const connectStates = ['dataset']
+
+    if (storeUtils.shouldUpdate(viewState, connectStates)) {
+      viewState = storeUtils.updateViewState(viewState, connectStates)
+      render()
+    }
+  }
+
+  const store = storeUtils.getStore()
+
+  innerRender()
+  store.subscribe(innerRender)
+  d3.select(window).on('resize', innerRender)
 }
 
-const renderSideBar = (selector, fields) => {
-  const sidebar = d3.select(selector);
+const render = () => {
+  const dataset = viewState.get('dataset')
+
+  const features = getEntryFeatures(dataset)
+  renderSideBar(elementsProvider.SIDEBAR_OPTIONS, features)
+}
+
+const renderSideBar = (selector, features) => {
+  const sidebar = d3.select(selector)
 
   const options = sidebar
                     .selectAll("input")
-                    .data(fields)
+                    .data(features)
                     .enter()
                     .append("div")
                       .attr("class", "col s12")
@@ -42,9 +62,9 @@ const renderLabels = (options) => {
 
 const toggleFeature = (featureName) => {
   console.log(`INFO: Toggled ${featureName} checkbox.`)
-  storeRef.dispatch(actions.toggleSidebarFilter(featureName))
+  storeUtils.dispatch(actions.toggleSidebarFilter(featureName))
 }
 
-const getDataFields = (data) => {
-  return Object.keys(data[0])
+const getEntryFeatures = (dataset) => {
+  return Object.keys(dataset.get(0))
 }

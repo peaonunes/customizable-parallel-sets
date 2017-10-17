@@ -1,3 +1,5 @@
+import Immutable from 'immutable'
+
 let storeRef
 
 const init = (store) => {
@@ -12,8 +14,42 @@ const getState = () => {
   return storeRef.getState()
 }
 
+const shouldUpdate = (viewState, connectStates) => {
+  if (viewState.size === 0 || connectStates.length === 0)
+    return true
+
+  const nextState = Immutable.Map({})
+
+  connectStates.forEach((stateName) => {
+    nextState.set(stateName, storeRef.getState()[stateName])
+  })
+
+  return nextState.every((state) => {
+    return state.equals(viewState.get(state))
+  })
+}
+
+const updateViewState = (viewState, connectStates) => {
+  if (connectStates.length === 0) return []
+
+  var nextViewState = Immutable.Map({})
+
+  connectStates.forEach((stateName) => {
+    nextViewState = nextViewState.set(stateName, storeRef.getState()[stateName])
+  })
+
+  return nextViewState
+}
+
+const dispatch = (actionFunction) => {
+  storeRef.dispatch(actionFunction())
+}
+
 export default {
   init,
   getStore,
-  getState
+  getState,
+  shouldUpdate,
+  updateViewState,
+  dispatch
 }
