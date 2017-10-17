@@ -20,7 +20,7 @@ export default () => {
 
   innerRender()
   store.subscribe(innerRender)
-  d3.select(window).on('resize', innerRender)
+  d3.select(window).on('resize', render)
 }
 
 const render = () => {

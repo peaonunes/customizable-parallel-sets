@@ -8,8 +8,8 @@ const store = storeProvider()
 
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(function() {
-    const data = readData(store)
-    renderSidebar(data, store)
-    renderParallelSets(data)
+    readData()
+    renderSidebar()
+    renderParallelSets()
   }, 3000)
 })

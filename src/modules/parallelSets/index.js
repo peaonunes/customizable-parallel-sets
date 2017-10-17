@@ -1,19 +1,55 @@
 import { elementsProvider } from '../../utils/domUtils.js'
 import setupParsetFunction from './d3.parsets'
+import storeUtils from '../redux/storeUtils.js'
+import Immutable from 'immutable'
 import './d3.parsets.scss'
 import d3v3 from './d3v3'
 
 setupParsetFunction(d3v3)
 const parallelSetChart = d3v3.parsets()
+let viewState = Immutable.Map({})
 
-export default (data) => {
-  renderParallelSet(data)
+export default (daa) => {
+  const innerRender = () => {
+    const connectStates = ['dataset', 'featuresFilter']
+
+    if (storeUtils.shouldUpdate(viewState, connectStates)) {
+      viewState = storeUtils.updateViewState(viewState, connectStates)
+      render()
+    }
+  }
+
+  const store = storeUtils.getStore()
+
+  innerRender()
+  store.subscribe(innerRender)
+  d3.select(window).on('resize', render)
 }
 
-const renderParallelSet = (data) => {
+const render = () => {
+  const dataset = viewState.get('dataset')
+
+  renderParallelSet(dataset)
+}
+
+const renderParallelSet = (dataset) => {
   const width = getWidth()
   const svg = reloadSvg(width)
-  renderParset(data, width, svg)
+  renderParset(dataset, width, svg)
+}
+
+const renderParset = (dataset, width, svg) => {
+  parallelSetChart.dimensions(getDimensions(dataset))
+  parallelSetChart.width(width)
+
+  svg.datum(dataset.toJS()).call(parallelSetChart)
+}
+
+const getDimensions = (dataset) => {
+  const allDimensions = Object.keys(dataset.get(0))
+  const dimensionsToFilter = viewState.get('featuresFilter')
+
+  return allDimensions.filter((dimension) => !dimensionsToFilter.includes(dimension))
 }
 
 const getWidth = () => {
@@ -30,11 +66,4 @@ const reloadSvg = (width) => {
     .attr("height", parallelSetChart.height())
   
   return svg
-}
-
-const renderParset = (data, width, svg) => {
-  parallelSetChart.dimensions(Object.keys(data[0]))
-  parallelSetChart.width(width)
-
-  svg.datum(data).call(parallelSetChart)
 }
