@@ -8,7 +8,7 @@ const store = storeProvider()
 
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(function() {
-    const data = readData()
+    const data = readData(store)
     renderSidebar(data, store)
     renderParallelSets(data)
   }, 3000)

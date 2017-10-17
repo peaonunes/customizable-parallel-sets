@@ -1,4 +1,6 @@
-export default () => {
+import actions from './actions.js'
+
+export default (store) => {
   const data = [
     {
       status: 200,
@@ -34,5 +36,6 @@ export default () => {
     }
   ]
 
+  store.dispatch(actions.storeDataset(data))
   return data
 }

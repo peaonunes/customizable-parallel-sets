@@ -1,9 +1,11 @@
-import { combineReducers, createStore, compose } from 'redux';
-import featuresFilter from '../sidebar/reducer.js';
+import { combineReducers, createStore, compose } from 'redux'
+import featuresFilter from '../sidebar/reducer.js'
+import dataset from '../dataReader/reducer.js'
 
 export default () => {
   const rootReducer = combineReducers({
-    featuresFilter
+    featuresFilter,
+    dataset
   })
 
   return createStore(
