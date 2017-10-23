@@ -8,7 +8,7 @@ let viewState = Immutable.Map({})
 
 export default () => {
   const innerRender = () => {
-    const connectStates = ['dataset']
+    const connectStates = ['dataset', 'featuresFilter']
 
     if (storeUtils.shouldUpdate(viewState, connectStates)) {
       viewState = storeUtils.updateViewState(viewState, connectStates)
@@ -18,9 +18,9 @@ export default () => {
 
   const store = storeUtils.getStore()
 
-  innerRender()
-  store.subscribe(innerRender)
   d3.select(window).on('resize', render)
+  store.subscribe(innerRender)
+  innerRender()
 }
 
 const render = () => {
@@ -50,7 +50,9 @@ const renderCheckboxes = (options) => {
       .attr("type", "checkbox")
       .attr("checked", "checked")
       .attr("id", (d) => d)
-      .on("click", (d) => toggleFeature(d))
+      .on("click", (featureName) => {
+        return toggleFeature(featureName)
+      })
 }
 
 const renderLabels = (options) => {

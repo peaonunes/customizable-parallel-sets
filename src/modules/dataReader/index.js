@@ -1,5 +1,6 @@
 import storeUtils from '../redux/storeUtils.js'
 import actions from './actions.js'
+import * as d3 from 'd3'
 
 export default (store) => {
   const data = [
@@ -45,5 +46,17 @@ export default (store) => {
     }
   ]
 
+  storeUtils.dispatch(actions.storeDataset(data))
+}
+
+const fileReader = new FileReader()
+
+export const loadCSV = (file) => {
+  fileReader.addEventListener("load", parseCSV, false)
+  fileReader.readAsText(file)
+}
+
+const parseCSV = () => {
+  const data = d3.csvParse(fileReader.result)
   storeUtils.dispatch(actions.storeDataset(data))
 }

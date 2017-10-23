@@ -21,9 +21,9 @@ export default (daa) => {
 
   const store = storeUtils.getStore()
 
-  innerRender()
-  store.subscribe(innerRender)
   d3.select(window).on('resize', render)
+  store.subscribe(innerRender)
+  innerRender()
 }
 
 const render = () => {

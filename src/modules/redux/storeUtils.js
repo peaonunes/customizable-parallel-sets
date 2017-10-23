@@ -14,6 +14,10 @@ const getState = () => {
   return storeRef.getState()
 }
 
+const getStateElement = (name) => {
+  return storeRef.getState()[name]
+}
+
 const shouldUpdate = (viewState, connectStates) => {
   if (viewState.size === 0 || connectStates.length === 0)
     return true
@@ -49,6 +53,7 @@ export default {
   init,
   getStore,
   getState,
+  getStateElement,
   shouldUpdate,
   updateViewState,
   dispatch

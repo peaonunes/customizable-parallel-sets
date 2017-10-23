@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Example of Customizable Parallel Sets</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   </head>
@@ -30,6 +31,15 @@
         </div>
       </div>
     </div>
+    <div class="fixed-action-btn">
+      <a class="btn-floating btn-large red">
+        <i class="large material-icons">add</i>
+      </a>
+      <ul>
+        <li><a id="upload_csv" class="btn-floating green">csv</a></li>
+      </ul>
+    </div>
+    <input id="upload_csv_input" type="file" accept=".csv" style="visibility:hidden" />
     <script src="bundle.js"></script>
   </body>
 
