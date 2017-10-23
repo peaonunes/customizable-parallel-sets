@@ -29,7 +29,13 @@ export default (daa) => {
 const render = () => {
   const dataset = viewState.get('dataset')
 
+  hideLoader()
   renderParallelSet(dataset)
+}
+
+const hideLoader = () => {
+  const selector = elementsProvider.LOADER_SECTION
+  d3.select(selector).attr("style", "display: none;")
 }
 
 const renderParallelSet = (dataset) => {

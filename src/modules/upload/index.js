@@ -36,8 +36,7 @@ const bindUploadCSVInput = (selector) => {
 }
 
 const bindUploadCSV = (selector) => {
-  const uploadButton = d3.select(selector)
-  uploadButton.on("click", () => openFileSelector())
+  d3.selectAll(selector).on("click", () => openFileSelector())
 }
 
 const openFileSelector = () => {
@@ -56,4 +55,16 @@ const readData = (node, index, array) => {
 
   const file = fileInput.files[0]
   storeUtils.dispatch(actions.loadCSV(file))
+  hideUploadPlaceholder()
+  showLoader()
+}
+
+const hideUploadPlaceholder = () => {
+  const selector = elementsProvider.UPLOAD_PLACE_HOLDER
+  d3.select(selector).attr("style", "display: none;")
+}
+
+const showLoader = () => {
+  const selector = elementsProvider.LOADER_SECTION
+  d3.select(selector).attr("style", "display: block;")
 }

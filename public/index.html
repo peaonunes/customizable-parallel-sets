@@ -2,9 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Example of Customizable Parallel Sets</title>
+    <title>Parallel Set Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://use.fontawesome.com/a54368f74e.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   </head>
@@ -19,6 +20,14 @@
           <div class="divider"></div>
           <div id="parallel_set_content" class="parallel-content">
           </div>
+          <div id="upload_placeholder" class="center">
+            <a id="upload_csv">
+              <i class="material-icons x-large-icon icon-color">cloud_upload</i>
+            </a>
+          </div>
+          <div id="loader_section" class="animate-loader start-hidden center">
+            <i class="fa fa-flask x-large-icon" aria-hidden="true"></i>
+          </div>
         </div>
 
         <div class="sidebar col s2 left-align">
@@ -32,11 +41,11 @@
       </div>
     </div>
     <div class="fixed-action-btn">
-      <a class="btn-floating btn-large red">
+      <a class="btn-floating btn-large light-green lighten-1">
         <i class="large material-icons">add</i>
       </a>
       <ul>
-        <li><a id="upload_csv" class="btn-floating green">csv</a></li>
+        <li><a id="upload_csv" class="btn-floating red">csv</a></li>
       </ul>
     </div>
     <input id="upload_csv_input" type="file" accept=".csv" style="visibility:hidden" />

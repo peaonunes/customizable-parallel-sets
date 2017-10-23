@@ -36,3 +36,57 @@
   margin-right: 5px;
   margin-top: 10px;
 }
+
+.icon-color {
+  color: #9ccc65;
+}
+
+.x-large-icon {
+  cursor: pointer;
+  font-size: 150px;
+  margin-top: 150px;
+}
+
+keyframes fadeInOutAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+  0%   {color: #5C7F32;}
+  50%  {color: #CFFF98;}
+  100% {color: #9CCC65;}
+}
+@-o-keyframes fadeInOutAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+  0%   {color: #5C7F32;}
+  50%  {color: #CFFF98;}
+  100% {color: #9CCC65;}
+}
+@-moz-keyframes fadeInOutAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+  0%   {color: #5C7F32;}
+  50%  {color: #CFFF98;}
+  100% {color: #9CCC65;}
+}
+@-webkit-keyframes fadeInOutAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+  0%   {color: #5C7F32;}
+  50%  {color: #CFFF98;}
+  100% {color: #9CCC65;}
+}
+
+.animate-loader {
+  -webkit-animation: fadeInOutAnimation 1s infinite;
+  -moz-animation: fadeInOutAnimation 1s infinite;
+  -o-animation: fadeInOutAnimation 1s infinite;
+  animation: fadeInOutAnimation 1s infinite;
+}
+
+.start-hidden {
+  display: none;
+}
