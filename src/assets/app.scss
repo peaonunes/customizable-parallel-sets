@@ -15,7 +15,7 @@
 }
 
 .divider {
-  height: 2px !important;
+  height: 1px !important;
 }
 
 .no-spacement {
@@ -27,5 +27,12 @@
 }
 
 .parallel-content {
+  margin-top: 10px;
+}
+
+.github-icon {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
   margin-top: 10px;
 }
