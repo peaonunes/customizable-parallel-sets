@@ -24,7 +24,7 @@ $ npm run start
 Play around with the dashboard.
 
 ## Creating production build
-The following command will create an optimized build output the files on `/public` folder. After that you will be able to serve statically the files.
+The following command will create an optimized build output the files on `/docs` folder. After that you will be able to serve statically the files.
 ```
 $ npm run build
 ```
