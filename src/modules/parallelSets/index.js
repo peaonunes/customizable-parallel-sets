@@ -39,6 +39,7 @@ const hideLoader = () => {
 }
 
 const renderParallelSet = (dataset) => {
+  Materialize.toast('Rendering...', 3000, 'rounded')
   const width = getWidth()
   const svg = reloadSvg(width)
   renderParset(dataset, width, svg)

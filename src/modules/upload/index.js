@@ -50,6 +50,7 @@ const openFileSelector = () => {
 
 const readData = (node, index, array) => {
   console.log('INFO: Reading data.')
+  Materialize.toast('Uploading file...', 3000, 'rounded')
   const fileInput = array[index]
 
   if (fileInput.files.length === 0) {

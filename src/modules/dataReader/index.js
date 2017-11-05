@@ -63,6 +63,7 @@ const readFile = (file, callback) => {
   fileReader = new FileReader()
   fileReader.addEventListener("load", callback, false)
   fileReader.readAsText(file)
+  Materialize.toast('Parsing content...', 3000, 'rounded')
 }
 
 const parseCSV = () => {
