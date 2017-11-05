@@ -34,11 +34,11 @@ const renderSideBar = (selector, features) => {
   const sidebar = d3.select(selector)
 
   const options = sidebar
-                    .selectAll("input")
-                    .data(features)
-                    .enter()
-                    .append("div")
-                      .attr("class", "col s12")
+    .selectAll("input")
+    .data(features)
+    .enter()
+    .append("div")
+      .attr("class", "col s12")
 
   renderCheckboxes(options)
   renderLabels(options)
@@ -58,8 +58,18 @@ const renderCheckboxes = (options) => {
 const renderLabels = (options) => {
   options
     .append("label")
+      .attr("class", "tooltipped")
+      .attr("data-position", "right")
+      .attr("data-delay", 50)
+      .attr("data-tooltip", (d) => d)
       .attr("for", (d) => d)
       .text((d) => d)
+
+  initTooltips()
+}
+
+const initTooltips = () => {
+  $('.tooltipped').tooltip({delay: 50})
 }
 
 const toggleFeature = (featureName) => {
