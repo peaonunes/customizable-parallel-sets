@@ -1,6 +1,6 @@
-import { LOAD_CSV } from '../upload/actions'
+import { LOAD_CSV, LOAD_JSON } from '../upload/actions'
+import { loadCSV, loadJSON } from './index'
 import { STORE_DATASET } from './actions'
-import { loadCSV } from './index'
 
 const Immutable = require('immutable')
 
@@ -11,8 +11,12 @@ const reducer = (state = defaultState, action) => {
     case STORE_DATASET:
       return Immutable.List(action.payload.data)
     case LOAD_CSV:
-      const { file } = action.payload
+      var { file } = action.payload
       loadCSV(file)
+      return state
+    case LOAD_JSON:
+      var { file } = action.payload
+      loadJSON(file)
       return state
     default:
       return state

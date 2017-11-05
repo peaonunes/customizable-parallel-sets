@@ -24,23 +24,28 @@ export default () => {
 }
 
 const render = () => {
-  bindUploadCSVInput(elementsProvider.UPLOAD_CSV_INPUT)
+  bindUploadInput(elementsProvider.UPLOAD_INPUT)
   bindUploadCSV(elementsProvider.UPLOAD_CSV_BUTTON)
+  bindUploadJSON(elementsProvider.UPLOAD_JSON_BUTTON)
 }
 
-const bindUploadCSVInput = (selector) => {
+const bindUploadInput = (selector) => {
   const uploadInput = d3.select(selector)
-  uploadInput.on("change", (node, index, array) => {
+  uploadInput.on('change', (node, index, array) => {
     return readData(node, index, array)
   })
 }
 
 const bindUploadCSV = (selector) => {
-  d3.selectAll(selector).on("click", () => openFileSelector())
+  d3.selectAll(selector).on('click', () => openFileSelector())
+}
+
+const bindUploadJSON = (selector) => {
+  d3.selectAll(selector).on('click', () => openFileSelector())
 }
 
 const openFileSelector = () => {
-  $(elementsProvider.UPLOAD_CSV_INPUT).trigger("click")
+  $(elementsProvider.UPLOAD_INPUT).trigger('click')
 }
 
 const readData = (node, index, array) => {
@@ -54,17 +59,37 @@ const readData = (node, index, array) => {
   }
 
   const file = fileInput.files[0]
-  storeUtils.dispatch(actions.loadCSV(file))
+  loadFile(file)
   hideUploadPlaceholder()
   showLoader()
 }
 
+const loadFile = (file) => {
+  const extension = file.name.split('.').pop()
+  if (extension === acceptedFormats.JSON)
+    storeUtils.dispatch(actions.loadJSON(file))
+  else if (extension === acceptedFormats.CSV)
+    storeUtils.dispatch(actions.loadCSV(file))
+  else
+    extensionNotSuppoerted(extension)
+}
+
 const hideUploadPlaceholder = () => {
   const selector = elementsProvider.UPLOAD_PLACE_HOLDER
-  d3.select(selector).attr("style", "display: none;")
+  d3.select(selector).attr('style', 'display: none;')
 }
 
 const showLoader = () => {
   const selector = elementsProvider.LOADER_SECTION
-  d3.select(selector).attr("style", "display: block;")
+  d3.select(selector).attr('style', 'display: block;')
+}
+
+const acceptedFormats = {
+  JSON: 'json',
+  CSV: 'csv'
+}
+
+const extensionNotSuppoerted = (extension) => {
+  console.error(`Error: extension ${extension} not supported.`)
+  Materialize.toast('Extension ${extension} not supported!', 4000)
 }

@@ -1,0 +1,26 @@
+{
+  "items": [
+    {"zone": "us-east", "method": "get", "target": "home"},
+    {"zone": "us-east", "method": "get", "target": "home"},
+    {"zone": "us-east", "method": "get", "target": "home"},
+    {"zone": "us-east", "method": "get", "target": "home"},
+    {"zone": "us-east", "method": "get", "target": "home"},
+    {"zone": "us-east", "method": "get", "target": "home"},
+    {"zone": "us-east", "method": "post", "target": "shop"},
+    {"zone": "us-east", "method": "post", "target": "shop"},
+    {"zone": "us-east", "method": "get", "target": "shop"},
+    {"zone": "us-east", "method": "post", "target": "shop"},
+    {"zone": "us-east", "method": "post", "target": "shop"},
+    {"zone": "us-west", "method": "post", "target": "login"},
+    {"zone": "us-west", "method": "get", "target": "login"},
+    {"zone": "us-west", "method": "post", "target": "login"},
+    {"zone": "us-west", "method": "get", "target": "login"},
+    {"zone": "us-west", "method": "post", "target": "login"},
+    {"zone": "us-west", "method": "get", "target": "home"},
+    {"zone": "us-west", "method": "get", "target": "home"},
+    {"zone": "us-west", "method": "get", "target": "shop"},
+    {"zone": "us-west", "method": "get", "target": "home"},
+    {"zone": "us-west", "method": "get", "target": "home"},
+    {"zone": "us-west", "method": "get", "target": "home"}
+  ]
+}

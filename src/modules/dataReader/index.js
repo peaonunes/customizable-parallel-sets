@@ -49,14 +49,28 @@ export default (store) => {
   storeUtils.dispatch(actions.storeDataset(data))
 }
 
-const fileReader = new FileReader()
+let fileReader = undefined
 
 export const loadCSV = (file) => {
-  fileReader.addEventListener("load", parseCSV, false)
+  readFile(file, parseCSV)
+}
+
+export const loadJSON = (file) => {
+  readFile(file, parseJSON)
+}
+
+const readFile = (file, callback) => {
+  fileReader = new FileReader()
+  fileReader.addEventListener("load", callback, false)
   fileReader.readAsText(file)
 }
 
 const parseCSV = () => {
   const data = d3.csvParse(fileReader.result)
+  storeUtils.dispatch(actions.storeDataset(data))
+}
+
+const parseJSON = () => {
+  const data = JSON.parse(fileReader.result).items
   storeUtils.dispatch(actions.storeDataset(data))
 }
