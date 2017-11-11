@@ -6,5 +6,7 @@ export const elementsProvider = {
   UPLOAD_JSON_BUTTON: '#upload_json',
   UPLOAD_INPUT: '#upload_input',
   UPLOAD_PLACE_HOLDER: '#upload_placeholder',
-  LOADER_SECTION: '#loader_section'
+  LOADER_SECTION: '#loader_section',
+  OPEN_FAQ: '#open_faq',
+  FAQ_MODAL: '#faq_modal'
 }

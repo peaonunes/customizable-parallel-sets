@@ -42,9 +42,12 @@
 }
 
 .x-large-icon {
-  cursor: pointer;
   font-size: 150px;
   margin-top: 150px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 keyframes fadeInOutAnimation {

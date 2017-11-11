@@ -4,6 +4,7 @@ import storeUtils from './modules/redux/storeUtils'
 import renderSidebar from './modules/sidebar'
 import renderUpload from './modules/upload'
 import readData from './modules/dataReader'
+import renderFaq from './modules/faq'
 import Immutable from 'immutable'
 import './assets/app.scss'
 
@@ -40,5 +41,6 @@ const render = () => {
 
 const renderIdle = () => {
   renderUpload()
+  renderFaq()
   console.log(`INFO: App is idle.`)
 }
