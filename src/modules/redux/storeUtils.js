@@ -22,15 +22,13 @@ const shouldUpdate = (viewState, connectStates) => {
   if (viewState.size === 0 || connectStates.length === 0)
     return true
 
-  const nextState = Immutable.Map({})
+  let nextState = Immutable.Map({})
 
   connectStates.forEach((stateName) => {
-    nextState.set(stateName, storeRef.getState()[stateName])
+    nextState = nextState.mergeDeep(Immutable.Map({[stateName]: storeRef.getState()[stateName]}))
   })
 
-  return nextState.every((state) => {
-    return state.equals(viewState.get(state))
-  })
+  return !nextState.equals(viewState)
 }
 
 const updateViewState = (viewState, connectStates) => {
