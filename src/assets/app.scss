@@ -11,7 +11,7 @@
 }
 
 .section {
-  padding-bottom: 5px;
+  padding-bottom: 0px;
 }
 
 .divider {
@@ -58,7 +58,7 @@ keyframes fadeInOutAnimation {
   50%  {color: #5C7F32;}
   100% {color: #9CCC65;}
 }
-@-o-keyframes fadeInOutAnimation{
+@-o-keyframes fadeInOutAnimation {
   0%   { opacity:1; }
   50%  { opacity:0; }
   100% { opacity:1; }
@@ -66,7 +66,7 @@ keyframes fadeInOutAnimation {
   50%  {color: #5C7F32;}
   100% {color: #9CCC65;}
 }
-@-moz-keyframes fadeInOutAnimation{
+@-moz-keyframes fadeInOutAnimation {
   0%   { opacity:1; }
   50%  { opacity:0; }
   100% { opacity:1; }
@@ -74,7 +74,7 @@ keyframes fadeInOutAnimation {
   50%  {color: #5C7F32;}
   100% {color: #9CCC65;}
 }
-@-webkit-keyframes fadeInOutAnimation{
+@-webkit-keyframes fadeInOutAnimation {
   0%   { opacity:1; }
   50%  { opacity:0; }
   100% { opacity:1; }
@@ -99,4 +99,24 @@ keyframes fadeInOutAnimation {
   right: auto !important;
   bottom: 10%;
   left:2%;
+}
+
+.file-name {
+  font-size: 16px;
+}
+
+.round-top-borders {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.fade {
+  opacity:0.5;
+}
+
+.fade:hover {
+  opacity:1;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
 }

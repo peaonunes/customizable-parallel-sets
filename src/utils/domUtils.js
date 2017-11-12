@@ -8,5 +8,6 @@ export const elementsProvider = {
   UPLOAD_PLACE_HOLDER: '#upload_placeholder',
   LOADER_SECTION: '#loader_section',
   OPEN_FAQ: '#open_faq',
-  FAQ_MODAL: '#faq_modal'
+  FAQ_MODAL: '#faq_modal',
+  FILE_NAME: '#file_name'
 }

@@ -1,3 +1,4 @@
+import { elementsProvider } from '../../utils/domUtils'
 import storeUtils from '../redux/storeUtils.js'
 import actions from './actions.js'
 import * as d3 from 'd3'
@@ -64,6 +65,13 @@ const readFile = (file, callback) => {
   fileReader.addEventListener("load", callback, false)
   fileReader.readAsText(file)
   Materialize.toast('Parsing content...', 3000, 'rounded')
+  renderFileName(file)
+}
+
+const renderFileName = (file) => {
+  const fileNameSpan = d3.select(elementsProvider.FILE_NAME)
+
+  fileNameSpan.text(file.name)
 }
 
 const parseCSV = () => {
