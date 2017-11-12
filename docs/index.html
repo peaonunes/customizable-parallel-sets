@@ -51,7 +51,7 @@
       </ul>
     </div>
     <input id="upload_input" type="file" accept=".csv,.json" style="visibility:hidden" />
-    <div id="modal_faq" class="modal">
+    <div id="modal_faq" class="modal modal-fixed-footer">
       <div class="modal-content">
         <h4>Customizable Parallel Sets</h4>
         
@@ -59,18 +59,28 @@
           <div class="col s12 m4 l4 center">
             <i class="x-large-icon fa fa-github" aria-hidden="true"></i>
           </div>
-          <div class="col s12 m8 l8">
+          <div class="col s12 m8 l8" align="justify">
             <p>
               Is open source plug and play dashboard for visualizing data using the Parallel Sets concept. 
-              The app is very straighforward and simple for you to start exploring any data you want with this cool visualization.
+              The idea is simple to you to start exploring any data you want with this cool visualization.
             </p>
             <p>
-              You just need to import an <b>.csv</b> or <b>.json</b> file and the app will handle everything for you. The app will render the Parallel Sets correspondent to the dataset you choosed as well as it will render one sidebar for selecting/deselecting features to be considered on the Parallel Sets visualization.
+              Look forward the <a target="_blank" href="https://github.com/peaonunes/customizable-parallel-sets/tree/master/samples">samples</a> on GitHub. The currently input formats accepted are:
+              <ul class="browser-default">
+                <li>
+                  <b>CSV</b> files.
+                </li>
+                <li>
+                  <b>JSON</b> files, the dataset should be in a list called <i>items</i>.
+                </li>
+              </ul>
+              Choose, on sidebar, the features (attributes) to be considered on the Parallel Sets visualization.
             </p>
             <p>
               This project was made by me, <a target="_blank" href="https://github.com/peaonunes">@peaonunes</a>.<br>
-              Made using <a target="_blank" href="https://redux.js.org/">Redux</a>, <a target="_blank" href="https://d3js.org/">D3</a> and <a target="_blank" href="http://materializecss.com/modals.html">MaterializeCSS</a>.<br>
-              The Parallel Sets was created by <a target="_blank" href="https://github.com/jasondavies/d3-parsets/">Jason Davies</a> under the following <a target="_blank" href="https://github.com/jasondavies/d3-parsets/blob/master/LICENSE">license</a>.
+              The Parallel Sets was created by <a target="_blank" href="https://github.com/jasondavies/d3-parsets/">Jason Davies</a> under the following <a target="_blank" href="https://github.com/jasondavies/d3-parsets/blob/master/LICENSE">license</a>.<br>
+              Project also made with <a target="_blank" href="https://redux.js.org/">Redux</a>, <a target="_blank" href="https://d3js.org/">D3</a> and <a target="_blank" href="http://materializecss.com/modals.html">MaterializeCSS</a>.<br>
+              Thanks to Font Awesome by Dave Gandy - <a target="_blank" href="http://fontawesome.io">http://fontawesome.io</a>
             </p>
             <p>
               Contributions, Discussions or Bug Track are welcome at <a href="https://github.com/peaonunes/customizable-parallel-sets" target="_blank">Repository.</a>
