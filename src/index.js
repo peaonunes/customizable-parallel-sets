@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const store = storeUtils.getStore()
   store.subscribe(innerRender)
   innerRender()
+  openModal()
 })
 
 const render = () => {
@@ -43,4 +44,8 @@ const renderIdle = () => {
   renderUpload()
   renderFaq()
   console.log(`INFO: App is idle.`)
+}
+
+const openModal = () => {
+  $('.modal').modal('open')
 }
