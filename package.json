@@ -40,7 +40,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
-    "d3": "^4.2.7",
+    "d3": "^7.6.1",
     "d3-dsv": "^1.0.7",
     "immutable": "^3.8.2",
     "redux": "^3.7.2",
